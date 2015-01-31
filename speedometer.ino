@@ -89,8 +89,9 @@ ISR(TIMER1_COMPA_vect) {
 }
 
 void displayText(){
-  lcd.setCursor(0, 0);
-  lcd.print(velocity);
+  lcd.clear();
+  lcd.print(int(velocity));
+  lcd.print(" km/h");
 
   Serial.println(velocity);
 }
