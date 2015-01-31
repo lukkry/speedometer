@@ -9,6 +9,7 @@ int currentDebounceTicks;
 int time = 0;
 // the wheel radius, in kilometers
 float radius = 0.00034;
+float circumference;
 float velocity = 0.00;
 
 // initialize LCD with the numbers of the interface pins
