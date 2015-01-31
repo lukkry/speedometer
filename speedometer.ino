@@ -7,7 +7,8 @@ int reedVal;
 int maxDebounceTicks = 100;
 int currentDebounceTicks;
 int time = 0;
-float length = 1.0;
+// the wheel radius, in kilometers
+float radius = 0.00034;
 float velocity = 0.00;
 
 // initialize LCD with the numbers of the interface pins
@@ -20,6 +21,8 @@ void setup() {
   Serial.begin(9600);
 
   currentDebounceTicks = maxDebounceTicks;
+
+  circumference = 2 * 3.14 * radius;
 
   pinMode(reed, INPUT);
 
@@ -58,8 +61,10 @@ void loop() {
 ISR(TIMER1_COMPA_vect) {
   reedVal = digitalRead(reed);
   if(reedVal) {
+    // wait the given number of ticks, before calculating the velocity
     if (currentDebounceTicks == 0) {
-      velocity = length/(float(time)/1000);
+      // circumference in kilometers, time in hours
+      velocity = circumference/(float(time)/1000/3600);
       time = 0;
       currentDebounceTicks = maxDebounceTicks;
 
