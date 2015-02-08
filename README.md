@@ -1,5 +1,7 @@
 ## Arduino Bike Speedometer
 
+<img src="https://github.com/lukkry/speedometer/blob/master/photos/photo_1.jpg" alt="Arduino Bike Speedometer" width='200px' />
+
 ### How does it work?
 WIP...
 
