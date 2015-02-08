@@ -2,9 +2,9 @@
 
 This is the simple, Arduino based, bike speedometer. 
 
-A velocity is calculated, whenever a magnet pass near a reed switch, closing the circuit. Then, speed is displayed on LCD in kilometres per hour. When the wheel is still for 2 seconds, the velocity is set to 0. Max measurable speed is 76.68 km/s, it’s limited by 100ms debounce time.
+A velocity is calculated, whenever a magnet pass near a reed switch, closing the circuit. Then, speed is displayed on LCD in kilometres per hour. When the wheel is still for 2 seconds, the velocity is set to zero. Maximum measurable speed is limited by 100ms debounce time and it equals 76.68 km/s.
 
-The script was prepared specifically for my bike, with 26 inches wheels. Double check the size of your wheel before using it.
+The script was prepared specifically for my bike, with 26 inches wheels. Double check the size of your wheels before using it.
 
 <img src="https://github.com/lukkry/speedometer/blob/master/photos/photo_1_min.jpg" alt="Arduino Bike Speedometer" />
 
