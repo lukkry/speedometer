@@ -11,6 +11,7 @@ int time = 0;
 float radius = 0.00034;
 float circumference;
 float velocity = 0.00;
+float distance = 0.00;
 
 // initialize LCD with the numbers of the interface pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
@@ -61,13 +62,14 @@ void loop() {
 
 ISR(TIMER1_COMPA_vect) {
   reedVal = digitalRead(reed);
-  if(reedVal) {
+  if (reedVal) {
     // wait the given number of ticks, before calculating the velocity
     if (currentDebounceTicks == 0) {
       // circumference in kilometers, time in hours
       velocity = circumference/(float(time)/1000/3600);
       time = 0;
       currentDebounceTicks = maxDebounceTicks;
+      distance = distance + circumference;
 
     } else {
       if (currentDebounceTicks > 0) {
@@ -80,7 +82,7 @@ ISR(TIMER1_COMPA_vect) {
     }
   }
 
-  if(time > 2000) {
+  if (time > 2000) {
     // set velocity to 0 when tire is still for 2 seconds
     velocity = 0;
   } else {
@@ -90,8 +92,20 @@ ISR(TIMER1_COMPA_vect) {
 
 void displayText(){
   lcd.clear();
+
+  lcd.setCursor(0, 0);
   lcd.print(int(velocity));
   lcd.print(" km/h");
 
+  lcd.setCursor(0, 1);
+  if (distance > 1) {
+    lcd.print(distance);
+    lcd.print(" km");
+  } else {
+    lcd.print(int(distance * 1000));
+    lcd.print(" m");
+  }
+
   Serial.println(velocity);
+  Serial.println(distance);
 }
