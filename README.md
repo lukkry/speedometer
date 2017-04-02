@@ -19,5 +19,8 @@ The script was prepared specifically for my bike, with 26 inches wheels. Double 
 * 9V battery
 * Epoxy paper protoboard
 
+### Video
+https://www.youtube.com/watch?v=Dy2b9hupqwA
+
 ### Credits
 Inspired by [Arduino Bike Speedometer](http://www.instructables.com/id/Arduino-Bike-Speedometer)
